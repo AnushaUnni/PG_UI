@@ -1,0 +1,127 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+
+}
+  
+body {
+  background: #dae1e7;
+  color: white;
+  position: relative;
+
+}
+
+header {
+  font-family: "Dancing Script", cursive;
+  background-color: #00909e;
+  padding: 30px;
+  align-items: center;
+  text-align: center;
+  font-size: xx-large;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  color: white;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  height: 5%;
+  background-color: #00909e;
+}
+
+footer p{
+  font-size: smaller;
+  padding: 5px;
+}
+
+.mainPage{
+  padding: 13% 13%;
+  align-items: center;
+  text-align: center;
+}
+
+.game{
+  margin-top: -10px;
+  padding: 7% 15%;
+  align-items: center;
+  text-align: center;
+}
+
+.knowTheGameButton, .startTheGameButton, .questionButton {
+  padding: 10px;
+  margin: 20px;
+  width: 30%;
+  font-family: "Shadows Into Light", cursive;
+  background-color: #00909e;
+  border: 3px solid white;
+  transition: all 0.5s;
+}
+
+.knowTheGameButton:hover, .startTheGameButton:hover, .questionButton:hover {
+  background-color: #27496d;
+  border: 3px solid white;
+  border-radius: 16px;
+}
+
+.instructionsPopup{
+  position: fixed;  
+  top: 20%;  
+  left: 20%;  
+  right: 20%;  
+  bottom: 20%;  
+  margin: auto;  
+  border: 10px solid black;
+  background-color: #27496d;
+  transition: all .5s ease-in-out; /*make it smooth*/
+}
+
+h3{
+  font-family: 'Concert One', cursive;
+  color:#00909e;
+}
+
+.counter {
+  padding: 10px;
+  border: 2px solid #00909e;
+  color: #00909e;
+  width: 50px;
+  height: 50px;
+  margin: 40px;
+  margin-left: 48%;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.questions{
+  padding: 0% 12% 11%;
+  align-items: center;
+  text-align: center;
+}
+
+.question{
+  font-family: 'Concert One', cursive;
+  color:#00909e;
+  font-size: xx-large;
+  margin-bottom: 10%;
+}
+
+.answer {
+  font-family: "Shadows Into Light", cursive;
+  color: black;
+  padding: 30px;
+  align-items: center;
+  text-align: center;
+  font-size: large;
+}
+
+.personality{
+  font-family: "Dancing Script", cursive;
+  color: #00909e;
+  text-align: center;
+  font-size: xx-large;
+}
