@@ -18,7 +18,7 @@ function Counter(props) {
 
   return (
     <div className="container-fluid game">
-      <h3>Think of a real famous personality</h3>
+      <h3>Think of a real famous character</h3>
       <h4 className="counter">{counter}</h4>
     </div>
   );

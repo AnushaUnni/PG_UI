@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import App from "./App";
 
-function PersonalityNotExist(props) {
+function CharacterNotExist(props) {
   const [name, setName] = useState("");
   const [text, setText] = useState(false);
   const [playAgain, setPlayAgain] = useState(false);
@@ -25,7 +25,7 @@ function PersonalityNotExist(props) {
   function handleSubmit(event) {
     axios
       .post(
-        "http://localhost:8000/personality/save",
+        "http://localhost:8000/character/save",
         {},
         {
           params: {
@@ -58,8 +58,7 @@ function PersonalityNotExist(props) {
       <div className="container-fluid game">
         <form onSubmit={handlePlayAgain}>
           <h2 className="answer">
-            Thanks! I will read about this personality, and remember him if he
-            is really worthy!
+            Thanks! I will read about this person, and remember him/her if its really worthy!
           </h2>
           <button
             type="submit"
@@ -75,10 +74,10 @@ function PersonalityNotExist(props) {
       <div className="container-fluid game">
         <form onSubmit={handleSubmit}>
           <h2 className="answer">
-            You are smart! I dont know any real famous personality with these
+            You are smart! I dont know any real famous person with these
             characterstics.
           </h2>
-          <h3>Please enter your personality Name!</h3>
+          <h3>Please enter the name of the character you thought of!</h3>
           <input type="text" value={name} onChange={handleName} />
           <button
             type="submit"
@@ -92,4 +91,4 @@ function PersonalityNotExist(props) {
   }
 }
 
-export default PersonalityNotExist;
+export default CharacterNotExist;

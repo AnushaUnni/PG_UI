@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Personality from "./Personality";
-import PersonalityNotExist from "./PersonalityNotExist";
+import Character from "./Character";
+import CharacterNotExist from "./CharacterNotExist";
 
 function Questions() {
   const [game, setGame] = useState({
     gameId: "",
-    foundPersonality: "",
+    foundCharacter: "",
     answer: "",
-    question: "Is your personality a male?",
+    question: "Is your character a male?",
+    uniqueFeature: "",
+    checkCharacterByUniqueFeature:""
   });
 
-  const [isFoundPersonality, setIsFoundPersonality] = useState(false);
-  const [personalityNotExist, setPersonalityNotExist] = useState(false);
-  const [personalityName, setPersonalityName] = useState();
+  const [isFoundCharacter, setIsFoundCharacter] = useState(false);
+  const [characterNotExist, setCharacterNotExist] = useState(false);
+  const [characterName, setCharacterName] = useState();
   const [request, setRequest] = useState(false);
 
   const options = {
@@ -42,24 +44,26 @@ function Questions() {
       console.log("Game request is", game);
       axios
         .post(
-          "http://localhost:8000/personality/questions",
+          "http://localhost:8000/character/questions",
           {
             gameId: game.gameId,
             question: game.question,
             answer: game.answer,
+            uniqueFeature: game.uniqueFeature,
+            checkCharacterByUniqueFeature : game.checkCharacterByUniqueFeature
           },
           options
         )
         .then(
           (response) => {
             console.log("API response is", response.data);
-            if (response.data.foundPersonality === 'Yes') {
-              setIsFoundPersonality(true);
-              setPersonalityName(response.data.name);
+            if (response.data.foundCharacter === 'Yes') {
+              setIsFoundCharacter(true);
+              setCharacterName(response.data.name);
               setRequest(false);
             }
-            else if(response.data.personalityNotExist === "Yes"){
-              setPersonalityNotExist(true);
+            else if(response.data.characterNotExist === "Yes"){
+              setCharacterNotExist(true);
             }
              else {
               setGame((prevState) => ({
@@ -67,6 +71,8 @@ function Questions() {
                 answer: "",
                 gameId: response.data.gameId,
                 question: response.data.question,
+                uniqueFeature: response.data.uniqueFeature,
+                checkCharacterByUniqueFeature: response.data.checkCharacterByUniqueFeature
               }));
               setRequest(false);
             }
@@ -78,11 +84,11 @@ function Questions() {
     }
   }, [request]);
 
-  if (isFoundPersonality) {
-    return <Personality name={personalityName} />;
+  if (isFoundCharacter) {
+    return <Character name={characterName} />;
   } 
-  else if(personalityNotExist){
-    return <PersonalityNotExist />
+  else if(characterNotExist){
+    return <CharacterNotExist />
   }
   else {
     return (
